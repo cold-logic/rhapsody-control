@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>rhapsody-control test</title>
+    <style>
+      #term {
+        width: 75%;
+        height: 400px;
+      }
+    </style>
+    <script src="blackbird-js/blackbird.js"></script>
+    <link rel="stylesheet" href="blackbird-js/blackbird.css">
+  </head>
+  <body>
+    <form>
+      <textarea id="term"></textarea>
+    </form>
+    <script src="/js/socket.io.min.js"></script>
+    <script>
+    (function(){
+      var uri = 'http://127.0.0.1:8001/rhapsody',
+      rhapsody = io.connect(uri),
+      log_msg = function (msg) {
+        var term = document.querySelectorAll("#term");
+        term[0].innerHTML=term[0].innerHTML+msg+'\n';
+      },
+      connect = function(){
+        rhapsody.on('connect', function () {
+          log_msg('Connected to: '+uri+'!');
+        });
+        rhapsody.on('control', function (data) {
+          switch (data) {
+            case "pause":
+              log_msg('Pause');
+              break;
+            case "prev":
+              log_msg('Previous track');
+              break;
+            case "next":
+              log_msg('Next track');
+              break;
+            default:
+              log_msg(data);
+              break;
+          }
+        });
+      };
+      window.onload = connect;
+    })();
+    </script>
+  </body>
+</html>

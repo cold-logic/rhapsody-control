@@ -1,0 +1,34 @@
+#!/bin/bash
+##########################
+# Rhapsody Remote Control
+##########################
+
+# Setup path to node
+PATH=$PATH:/usr/local/bin
+DIR="~/Sites/rhapsody-control"
+APP="/Applications/Rhapsody.app"
+START="start.min.js"
+CTRL="control.min.js"
+
+function usage {
+  echo "Rhapsody Remote Control"
+  echo "usage: rhapsody [start] [stop] [status] [open] [pause] [next] [prev] [shuffle]"
+}
+
+case $1 in
+  "start" )
+    echo "Starting rhapsody control service."
+    cd $DIR; npm start
+    ;;
+  "stop" )
+    echo "Stopping rhapsody control service."
+    forever stop rhapsody_control
+    ;;
+  "status" ) forever list;;
+  "open" ) open $APP;;
+  "pause" ) cd $DIR; npm run-script pause;;
+  "next" ) cd $DIR; npm run-script next;;
+  "prev" ) cd $DIR; npm run-script prev;;
+  "shuffle" ) cd $DIR; npm run-script shuffle;;
+  * ) usage;;
+esac

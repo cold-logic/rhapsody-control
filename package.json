@@ -1,0 +1,35 @@
+{
+  "name": "rhapsody-control",
+  "version": "0.1.0",
+  "description": "Remote control for Rhapsody",
+  "main": "server.js",
+  "dependencies": {
+    "forever": "^0.11.1",
+    "forever-monitor": "^1.2.3",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "socket.io": "^1.0.2",
+    "socket.io-client": "^1.0.2",
+    "st": "^0.4.1"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-jshint": "*"
+  },
+  "scripts": {
+    "start": "node js/start.min.js",
+    "pause": "node js/control.min.js pause",
+    "next": "node js/control.min.js next",
+    "prev": "node js/control.min.js prev",
+    "shuffle": "node js/control.min.js shuffle"
+  },
+  "keywords": [
+    "rhapsody",
+    "remote",
+    "control"
+  ],
+  "author": "Chris Davison",
+  "license": "MIT",
+  "readme": "README.md"
+}
