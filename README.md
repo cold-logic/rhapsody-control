@@ -10,7 +10,7 @@ Provides remote controls and media key support for the Rhapsody website. This is
 	`npm install -g forever`
 3. Create a symlink for the included shell script:
 	`ln -s ~/Sites/rhapsody-control/shell-scripts/rhapsody /usr/local/sbin/rhapsody`
-3. Download Fluid and create an SSB that points to <http://app.rhapsody.com/>
+3. Download Fluid and create a SSB that points to <http://app.rhapsody.com/>
 4. Open the newly created Rhapsody app and open the Window->Userscripts menu
 5. Add a pattern of "*.rhapsody.com"
 6. Paste the contents of (*js/userscript.min.js*) into the text field
