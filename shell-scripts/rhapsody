@@ -5,7 +5,7 @@
 
 # Setup path to node
 PATH=$PATH:/usr/local/bin
-DIR="~/Sites/rhapsody-control"
+DIR=$(stat -f%N ~/Sites/rhapsody-control)
 APP="/Applications/Rhapsody.app"
 START="start.min.js"
 CTRL="control.min.js"
