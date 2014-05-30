@@ -5,9 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "forever": "^0.11.1",
-    "forever-monitor": "^1.2.3",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-uglify": "^0.4.0",
     "socket.io": "^1.0.2",
     "socket.io-client": "^1.0.2",
     "st": "^0.4.1"
