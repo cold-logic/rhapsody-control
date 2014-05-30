@@ -23,9 +23,6 @@ build/Release
 # Deployed apps should consider commenting this line out:
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
-<<<<<<< HEAD
 
 # Ignore Mac's invisible files
 .DS_Store
-=======
->>>>>>> 3c5795f4a0ffa1e80c483e5c5e3f520ed905633f

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Rhapsody Control
 Provides remote controls and media key support for the Rhapsody website. This is primarily designed to work with a [Fluid](http://fluidapp.com/) [SSB](http://en.wikipedia.org/wiki/Site-specific_browser) but it should also work with userscript extensions such as [GreaseMonkey](http://www.greasespot.net/) or [TamperMonkey](http://tampermonkey.net/) in supported browsers. Just be aware that the Growl notifications won't work when used in a browser.
 
@@ -61,9 +60,3 @@ Normally iTunes will take over the media keys on your keyboard (previous, play/p
 		* Map the F7 key to `cd ~/Sites/rhapsody-control; npm run-script prev`
 		* Map the F8 key to `cd ~/Sites/rhapsody-control; npm run-script pause`
 		* Map the F9 key to `cd ~/Sites/rhapsody-control; npm run-script next`
-=======
-rhapsody-control
-================
-
-Provides remote controls and media key support for the Rhapsody website
->>>>>>> 3c5795f4a0ffa1e80c483e5c5e3f520ed905633f
