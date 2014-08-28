@@ -17,7 +17,8 @@ module.exports = function(grunt) {
           'js/socket.io.min.js': ['src/socket.io.js'],
           'js/userscript.min.js': ['src/userscript.js'],
           'js/control.min.js': ['src/control.js'],
-          'js/server.min.js': ['src/server.js']
+          'js/server.min.js': ['src/server.js'],
+          'js/mediaKeysPlugin.min.js': ['src/mediaKeysPlugin.js']
         }
       }
     }

@@ -1,5 +1,6 @@
 /*jshint undef:true */
-/*global $, jQuery, console, io */
+/*global $, jQuery, console, io, Rhapsody, window, setTimeout, clearTimeout, MutationObserver */
+var rcontrol;
 rcontrol = {
   connect: function() { "use strict";
     
@@ -19,32 +20,76 @@ rcontrol = {
     });
 
     // On control event, fire jQuery handlers
-    rcontrol.session.on("control", function(data) {
-      switch(data) {
-        case "pause":
-          if ("none" == $("#player-play").css("display")) {
-            $("#player-pause").click();
-            rcontrol.notify("Pause");
-          } else {
-            $("#player-play").click();
-            rcontrol.notify("Play");
-          }
-          break;
-        case "next":
-          $("#player-next").click();
-          break;
-        case "prev":
-          $("#player-previous").click();
-          break;
-        case "shuffle":
-          $("#player-shuffle").click();
-          rcontrol.notify("Shuffle");
-          break;
-        default:
-          console.log(data);
-          break;
-      }
+    rcontrol.session.on("control", function(cmd) {
+      rcontrol.do(cmd);
     });
+  },
+  do: function(command) {
+    var play, next, previous, shuffle;
+    if (Rhapsody) {
+      play = function () {
+        if (Rhapsody.queueController.isPlaying) {
+          Rhapsody.queueController.pause();
+        } else {
+          Rhapsody.queueController.resume();
+        }
+      };
+      next = function () {
+        if (Rhapsody.queueController.isPlaying) {
+          Rhapsody.queueController.playNext();
+        }
+      };
+      previous = function () {
+        if (Rhapsody.queueController.isPlaying) {
+          Rhapsody.queueController.playPrevious();
+        }
+      };
+      shuffle = function () {
+        Rhapsody.queueController.toggleShuffle();
+      };
+    } else {
+      play = function () {
+        if ("none" == $("#player-play").css("display")) {
+          $("#player-pause").click();
+          rcontrol.notify("Pause");
+        } else {
+          $("#player-play").click();
+        }
+      };
+      next = function () {
+        $("#player-next").click();
+        
+      };
+      previous = function () {
+        $("#player-previous").click();
+        
+      };
+      shuffle = function () {
+        $("#player-shuffle").click();
+
+      };
+    }
+    switch (command) {
+      case "play":
+        play();
+        rcontrol.notify("Play");
+        break;
+      case "next":
+        next();
+        rcontrol.notify("Next");
+        break;
+      case "previous":
+        previous();
+        rcontrol.notify("Previous");
+        break;
+      case "shuffle":
+        shuffle();
+        rcontrol.notify("Shuffle");
+        break;
+      default:
+        play();
+        break;
+    }
   },
   getArtist: function() { "use strict";
     return $("#player-artist-link").text();
